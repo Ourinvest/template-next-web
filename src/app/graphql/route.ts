@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 
+import { LoggerInterceptor } from '@/server/middlewares/error-interceptor';
 import { UpResolver } from '@/server/resolvers/up';
 import { createYoga } from 'graphql-yoga';
 import { buildSchema } from 'type-graphql';
@@ -13,6 +14,7 @@ const { handleRequest } = createYoga({
 	schema: async () =>
 		await buildSchema({
 			resolvers: [UpResolver],
+			globalMiddlewares: [LoggerInterceptor],
 		}),
 });
 
