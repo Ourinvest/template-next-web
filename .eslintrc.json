@@ -4,13 +4,13 @@
 		"node": true
 	},
 	"extends": [
+		"next/core-web-vitals",
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:prettier/recommended",
 		"prettier",
-		"eslint:recommended",
-		"next/core-web-vitals"
+		"eslint:recommended"
 	],
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
