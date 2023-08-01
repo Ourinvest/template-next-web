@@ -1,3 +1,3 @@
 export default function Home() {
-	return <h1>Home</h1>;
+	return <main className="mx-20 pt-5"></main>;
 }
