@@ -1,0 +1,4 @@
+{
+	"pattern": "^(main|development|staging){1}$|^(feat|bug|hotfix|refactor|doc|test|chore)/([A-Z]{3,4}-\\d+/)?[a-z-]+",
+	"errorMsg": "Please follow standard branch name, rename branch using: git branch -m <oldname> <newname>"
+}
