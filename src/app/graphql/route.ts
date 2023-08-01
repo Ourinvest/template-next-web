@@ -1,17 +1,8 @@
-import { createSchema, createYoga } from 'graphql-yoga';
+import 'reflect-metadata';
 
-const schema = createSchema({
-	typeDefs: /*GraphQL*/ `
-        type Query {
-            up: String!
-        }
-    `,
-	resolvers: {
-		Query: {
-			up: () => 'Success!',
-		},
-	},
-});
+import { UpResolver } from '@/server/resolvers/up';
+import { createYoga } from 'graphql-yoga';
+import { buildSchema } from 'type-graphql';
 
 const { handleRequest } = createYoga({
 	graphqlEndpoint: '/graphql',
@@ -19,7 +10,10 @@ const { handleRequest } = createYoga({
 		Request: Request,
 		Response: Response,
 	},
-	schema,
+	schema: async () =>
+		await buildSchema({
+			resolvers: [UpResolver],
+		}),
 });
 
 export { handleRequest as GET, handleRequest as POST };
