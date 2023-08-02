@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 
 import { Query, Resolver } from 'type-graphql';
+
 import { Up } from '../entities/up';
 
 @Resolver(Up)
