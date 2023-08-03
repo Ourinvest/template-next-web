@@ -8,7 +8,7 @@
 		"dev": "next dev",
 		"format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
 		"lint": "next lint",
-		"postinstall": "pnpm build",
+		"postinstall": "next build",
 		"prepare": "husky install",
 		"start": "next start",
 		"test": "jest --watch"
