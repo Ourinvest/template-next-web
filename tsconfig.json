@@ -34,11 +34,13 @@
 		}
 	},
 	"include": [
+		".eslintrc.json",
 		".next/types/**/*.ts",
 		"**/*.ts",
 		"**/*.tsx",
 		"jest.config.ts",
 		"next-env.d.ts",
+		"next.config.js",
 		"tsconfig.jest.json"
 	],
 	"exclude": ["node_modules"]
