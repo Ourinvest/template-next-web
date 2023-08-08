@@ -1,11 +1,8 @@
-'use client';
-
-import '@/styles/global.css';
-
-import { ThemeSelectorProvider, ToastProvider } from 'goldends';
+import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
+const Provider = dynamic(() => import('@/components/provider'));
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({
 	children,
@@ -15,11 +12,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<ThemeSelectorProvider>
-					<ToastProvider>
-						<div>{children}</div>
-					</ToastProvider>
-				</ThemeSelectorProvider>
+				<Provider>{children}</Provider>
 			</body>
 		</html>
 	);
