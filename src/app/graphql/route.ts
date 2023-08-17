@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import 'reflect-metadata';
 
 import { createYoga } from 'graphql-yoga';
@@ -8,10 +9,25 @@ import { TodoResolver } from '@/server/resolvers/todo';
 import { UpResolver } from '@/server/resolvers/up';
 
 const { handleRequest } = createYoga({
-	graphqlEndpoint: '/graphql',
+	context: ({ params }) => console.log(params),
 	fetchAPI: {
 		Request: Request,
 		Response: Response,
+	},
+	graphqlEndpoint: '/graphql',
+	logging: {
+		debug: (...arguments_) => {
+			console.log(arguments_);
+		},
+		error: (...arguments_) => {
+			console.error(arguments_);
+		},
+		info: (...arguments_) => {
+			console.info(arguments_);
+		},
+		warn: (...arguments_) => {
+			console.warn(arguments_);
+		},
 	},
 	schema: async () =>
 		await buildSchema({

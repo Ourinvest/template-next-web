@@ -24,7 +24,8 @@ export class TodoResolver {
 
 	@Mutation(() => Todo)
 	async createTodo(
-		@Arg('createTodoInput') createTodoInput: CreateTodoInput,
+		@Arg('createTodoInput', { validate: false })
+		createTodoInput: CreateTodoInput,
 	): Promise<Todo | void> {
 		return this.todoService
 			.create(createTodoInput)

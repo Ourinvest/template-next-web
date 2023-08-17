@@ -1,18 +1,18 @@
 import 'reflect-metadata';
 
-import { Field, ObjectType } from 'type-graphql';
+import { Field, Int, ObjectType } from 'type-graphql';
 
 @ObjectType()
 export class Todo {
 	@Field(() => Boolean)
 	completed: boolean;
 
-	@Field()
+	@Field(() => Int)
 	id: number;
 
 	@Field()
 	title: string;
 
-	@Field()
+	@Field(() => Int)
 	userId: number;
 }
