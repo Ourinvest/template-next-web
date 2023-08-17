@@ -25,7 +25,9 @@
 		"react-dom": "18.2.0",
 		"reflect-metadata": "^0.1.13",
 		"tailwindcss": "3.3.3",
-		"type-graphql": "^1.1.1"
+		"type-graphql": "^1.1.1",
+		"type-graphql-utils": "^2.1.0",
+		"typedi": "^0.10.0"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.6.7",

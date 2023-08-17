@@ -41,6 +41,12 @@ dependencies:
   type-graphql:
     specifier: ^1.1.1
     version: 1.1.1(class-validator@0.14.0)(graphql@15.8.0)
+  type-graphql-utils:
+    specifier: ^2.1.0
+    version: 2.1.0(graphql@15.8.0)(type-graphql@1.1.1)
+  typedi:
+    specifier: ^0.10.0
+    version: 0.10.0
 
 devDependencies:
   '@commitlint/cli':
@@ -1049,6 +1055,7 @@ packages:
   /@jridgewell/resolve-uri@3.1.1:
     resolution: {integrity: sha512-dSYZh7HhCDtCKm4QakX0xFpsRDqjjtZf/kjI/v3T3Nwt5r8/qz/M19F9ySyOqU94SXBmeG9ttTul+YnR4LOxFA==}
     engines: {node: '>=6.0.0'}
+    requiresBuild: true
 
   /@jridgewell/set-array@1.1.2:
     resolution: {integrity: sha512-xnkseuNADM0gt2bs+BvhO0p78Mk762YnZdsuzFV018NoG1Sj1SCQvpSqa7XUaTam5vAGasABV9qXASMKnFMwMw==}
@@ -6635,6 +6642,16 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /type-graphql-utils@2.1.0(graphql@15.8.0)(type-graphql@1.1.1):
+    resolution: {integrity: sha512-uk6lLLIbyaQXzcVBrC97TvmrjN7GkLBAHNJhThJ5tOnlmlwgcX2F/LKv5S4Qu3p4dWK571uTJuzZ5frKBzf9HA==}
+    peerDependencies:
+      graphql: ^15
+      type-graphql: ^1
+    dependencies:
+      graphql: 15.8.0
+      type-graphql: 1.1.1(class-validator@0.14.0)(graphql@15.8.0)
+    dev: false
+
   /type-graphql@1.1.1(class-validator@0.14.0)(graphql@15.8.0):
     resolution: {integrity: sha512-iOOWVn0ehCYMukmnXStbkRwFE9dcjt7/oDcBS1JyQZo9CbhlIll4lHHps54HMEk4A4c8bUPd+DjK8w1/ZrxB4A==}
     engines: {node: '>= 10.3'}
@@ -6688,6 +6705,10 @@ packages:
       call-bind: 1.0.2
       for-each: 0.3.3
       is-typed-array: 1.1.12
+
+  /typedi@0.10.0:
+    resolution: {integrity: sha512-v3UJF8xm68BBj6AF4oQML3ikrfK2c9EmZUyLOfShpJuItAqVBHWP/KtpGinkSsIiP6EZyyb6Z3NXyW9dgS9X1w==}
+    dev: false
 
   /typescript@5.1.6:
     resolution: {integrity: sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==}
