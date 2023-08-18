@@ -8,24 +8,16 @@ export class TodosService {
 	private readonly baseUrl: string = process.env.API_URL!;
 
 	async getAll(): Promise<Todo[]> {
-		try {
-			const response = await fetch(this.baseUrl);
-			return (await response.json()) as Todo[];
-		} catch (error) {
-			throw new Error(error);
-		}
+		const response = await fetch(this.baseUrl);
+		return (await response.json()) as Todo[];
 	}
 
 	async getOne(id: number): Promise<Todo> {
 		const url = `${this.baseUrl}/${id}`;
 
-		try {
-			const response = await fetch(url);
+		const response = await fetch(url);
 
-			return (await response.json()) as Todo;
-		} catch (error) {
-			throw new Error(error);
-		}
+		return (await response.json()) as Todo;
 	}
 
 	async create(createTodoInput: CreateTodoInput): Promise<Todo> {
@@ -38,12 +30,8 @@ export class TodosService {
 			},
 		};
 
-		try {
-			const response = await fetch(this.baseUrl, options);
+		const response = await fetch(this.baseUrl, options);
 
-			return (await response.json()) as Todo;
-		} catch (error) {
-			throw new Error(error);
-		}
+		return (await response.json()) as Todo;
 	}
 }
