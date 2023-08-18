@@ -1,6 +1,11 @@
+/* eslint-disable unicorn/no-null */
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-console */
 import 'reflect-metadata';
 
+import { useEngine, useLogger } from '@envelop/core';
+import { useResponseCache } from '@envelop/response-cache';
+import { execute, parse, specifiedRules, subscribe, validate } from 'graphql';
 import { createYoga } from 'graphql-yoga';
 import { buildSchema } from 'type-graphql';
 import Container from 'typedi';
@@ -35,6 +40,15 @@ const { handleRequest } = createYoga({
 			container: Container,
 			validate: true,
 		}),
+	plugins: [
+		useEngine({ parse, validate, specifiedRules, execute, subscribe }),
+		useResponseCache({ session: () => null }),
+		useLogger({
+			logFn: (eventName, arguments_) => {
+				console.log(eventName, JSON.stringify(arguments_));
+			},
+		}),
+	],
 });
 
 export { handleRequest as GET, handleRequest as POST };

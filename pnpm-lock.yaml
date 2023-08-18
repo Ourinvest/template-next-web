@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@envelop/core':
+    specifier: ^4.0.0
+    version: 4.0.0
+  '@envelop/response-cache':
+    specifier: ^5.1.0
+    version: 5.1.0(@envelop/core@4.0.0)(graphql@15.8.0)
   autoprefixer:
     specifier: 10.4.14
     version: 10.4.14(postcss@8.4.27)
@@ -667,6 +673,22 @@ packages:
     engines: {node: '>=16.0.0'}
     dependencies:
       '@envelop/types': 4.0.0
+      tslib: 2.6.1
+    dev: false
+
+  /@envelop/response-cache@5.1.0(@envelop/core@4.0.0)(graphql@15.8.0):
+    resolution: {integrity: sha512-G81MF9XCQdmyZWgTkZa09rBusXNXhvjPMDjP4cfOpr8g1DEvEsxskEGT08f22hvl9Fg+G2wlVXBsHPLEr798Lg==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      '@envelop/core': ^4.0.0
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      '@envelop/core': 4.0.0
+      '@graphql-tools/utils': 10.0.4(graphql@15.8.0)
+      '@whatwg-node/fetch': 0.9.9
+      fast-json-stable-stringify: 2.1.0
+      graphql: 15.8.0
+      lru-cache: 10.0.0
       tslib: 2.6.1
     dev: false
 
