@@ -30,7 +30,9 @@
 			}
 		],
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": ["./src/*"],
+			"@dto/*": ["./src/server/dto/*"],
+			"@interfaces/*": ["./src/interfaces/*"]
 		}
 	},
 	"include": [
