@@ -30,7 +30,9 @@
 			}
 		],
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": ["./src/*"],
+			"@dto/*": ["./src/server/dto/*"],
+			"@interfaces/*": ["./src/interfaces/*"]
 		}
 	},
 	"include": [
@@ -40,8 +42,7 @@
 		"**/*.tsx",
 		"jest.config.ts",
 		"next-env.d.ts",
-		"next.config.js",
-		"tsconfig.jest.json"
+		"next.config.js"
 	],
 	"exclude": ["node_modules"]
 }
