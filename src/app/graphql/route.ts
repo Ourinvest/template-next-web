@@ -1,8 +1,6 @@
-/* eslint-disable unicorn/no-null */
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable no-console */
 import 'reflect-metadata';
 
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useEngine, useLogger } from '@envelop/core';
 import { useResponseCache } from '@envelop/response-cache';
 import { execute, parse, specifiedRules, subscribe, validate } from 'graphql';
@@ -14,38 +12,38 @@ import { TodoResolver } from '@/server/resolvers/todo';
 import { UpResolver } from '@/server/resolvers/up';
 
 const { handleRequest } = createYoga({
-	context: ({ params }) => console.log(params),
+	context: ({ params }) => console.info(params),
 	fetchAPI: {
-		Request: Request,
-		Response: Response,
+		Request,
+		Response,
 	},
 	graphqlEndpoint: '/graphql',
 	logging: {
-		debug: (...arguments_) => {
-			console.log(arguments_);
+		debug: (...parameters) => {
+			console.info(parameters);
 		},
-		error: (...arguments_) => {
-			console.error(arguments_);
+		error: (...parameters) => {
+			console.error(parameters);
 		},
-		info: (...arguments_) => {
-			console.info(arguments_);
+		info: (...parameters) => {
+			console.info(parameters);
 		},
-		warn: (...arguments_) => {
-			console.warn(arguments_);
+		warn: (...parameters) => {
+			console.warn(parameters);
 		},
 	},
 	schema: async () =>
-		await buildSchema({
+		buildSchema({
 			resolvers: [UpResolver, TodoResolver],
 			container: Container,
 			validate: true,
 		}),
 	plugins: [
 		useEngine({ parse, validate, specifiedRules, execute, subscribe }),
-		useResponseCache({ session: () => null }),
+		useResponseCache({ session: () => Object.create(null) as null }),
 		useLogger({
-			logFn: (eventName, arguments_) => {
-				console.log(eventName, JSON.stringify(arguments_));
+			logFn: (eventName, parameters) => {
+				console.info(eventName, JSON.stringify(parameters));
 			},
 		}),
 	],

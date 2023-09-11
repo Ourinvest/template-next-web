@@ -9,6 +9,7 @@ export class TodosService {
 
 	async getAll(): Promise<Todo[]> {
 		const response = await fetch(this.baseUrl);
+
 		return (await response.json()) as Todo[];
 	}
 
@@ -21,11 +22,13 @@ export class TodosService {
 	}
 
 	async create(createTodoInput: CreateTodoInput): Promise<Todo> {
+		// eslint-disable-next-line @typescript-eslint/naming-convention
 		const { completed, title, userId } = createTodoInput;
 		const options = {
 			method: 'POST',
 			body: JSON.stringify({ completed, title, userId }),
 			headers: {
+				// eslint-disable-next-line @typescript-eslint/naming-convention
 				'Content-type': 'application/json; charset=UTF-8',
 			},
 		};
